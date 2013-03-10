@@ -12,7 +12,8 @@ public class KillEverything extends JavaPlugin{
 
     @EventHandler
     public boolean onPlayerChatEvent(PlayerChatEvent event){
-        if(event.getMessage().toUpperCase().contains("KK") && !event.getMessage().toUpperCase().contains("BUKKIT")){
+        if(event.getMessage().toUpperCase().contains("KK") && !event.getMessage().toUpperCase().contains("BUKKIT")
+            && !event.getMessage().toUpperCase().contains("STOCKKEEPER")){
             for(Player p : Bukkit.getOnlinePlayers()){
                  p.setHealth(0);
                  }
