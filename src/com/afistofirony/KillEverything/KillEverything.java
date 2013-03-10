@@ -15,9 +15,8 @@ public class KillEverything extends JavaPlugin{
         if(event.getMessage().toUpperCase().contains("KK") && !event.getMessage().toUpperCase().contains("BUKKIT")){
             for(Player p : Bukkit.getOnlinePlayers()){
                  p.setHealth(0);
-                 getServer().broadcastMessage("That phrase is not allowed.")
-            }
-            event.setCancelled(true);
+                 }
+            getServer().broadcastMessage("That phrase is not allowed.");
         }
         return false;
     }
