@@ -12,12 +12,14 @@ public class KillEverything extends JavaPlugin{
 
     @EventHandler
     public boolean onPlayerChatEvent(PlayerChatEvent event){
-        if(event.getMessage().toUpperCase().contains("KK") && !event.getMessage().toUpperCase().contains("BUKKIT")
-            && !event.getMessage().toUpperCase().contains("STOCKKEEPER")){
-            for(Player p : Bukkit.getOnlinePlayers()){
-                 p.setHealth(0);
-                 }
-            getServer().broadcastMessage("That phrase is not allowed.");
+        String[] words = event.getMessage().split(" ");
+        for (String word : words) {
+            if (word.equalsIgnoreCase("kk")) {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    p.setHealth(0);
+                }
+                getServer().broadcastMessage("That phrase is not allowed.");
+            }
         }
         return false;
     }
