@@ -18,7 +18,7 @@ public class KillEverything extends JavaPlugin{
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     p.setHealth(0);
                 }
-                getServer().broadcastMessage("That phrase is not allowed.");
+                getServer().broadcastMessage(ChatColor.RED + "That phrase is not allowed.");
             }
         }
         return false;
