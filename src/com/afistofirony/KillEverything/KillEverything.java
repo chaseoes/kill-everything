@@ -2,6 +2,7 @@ package com.afistofirony.KillEverything;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.ChatColor;
 
 public class KillEverything extends JavaPlugin{
     PluginManager EventManager;
