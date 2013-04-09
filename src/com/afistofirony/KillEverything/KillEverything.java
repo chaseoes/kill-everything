@@ -4,15 +4,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.ChatColor;
 
-public class KillEverything extends JavaPlugin{
-    PluginManager EventManager;
-    // This is all pseudo-code, don't take it seriously.
-    public void onEnable(){
-        EventManager.registerEvents(this, this)
+public class KillEverything extends JavaPlugin implements Listener {
+
+    public void onEnable() {
+        getServer().getPluginManager().registerEvents(this, this)
     }
 
     @EventHandler
-    public boolean onPlayerChatEvent(PlayerChatEvent event){
+    public void onPlayerChatEvent(PlayerChatEvent event) {
         String[] words = event.getMessage().split(" ");
         for (String word : words) {
             if (word.equalsIgnoreCase("kk")) {
@@ -20,9 +19,9 @@ public class KillEverything extends JavaPlugin{
                     p.setHealth(0);
                 }
                 getServer().broadcastMessage(ChatColor.RED + "That phrase is not allowed.");
+                return;
             }
         }
-        return false;
     }
 
 }
